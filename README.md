@@ -2,7 +2,7 @@
 
 An end-to-end **Retrieval-Augmented Generation** app: upload PDFs (research papers, notes, docs), index them with **ChromaDB**, and ask questions via **OpenAI LLMs**. Answers are grounded in your documents and include **source citations**. Built with **LangChain** + **Streamlit**.
 
----
+
 
 ## ✨ Features
 
@@ -14,7 +14,7 @@ An end-to-end **Retrieval-Augmented Generation** app: upload PDFs (research pape
 - **🎛️ Controls** — change top-K, MMR, temperature, model names
 - **♻️ Reset** — one click to wipe and rebuild the index
 
----
+
 
 ## 🏗️ Architecture (RAG Flow)
 
@@ -32,7 +32,7 @@ PDFs → Loader → Splitter → Embeddings → Chroma (persist)
                              Retriever  ←  Question  → LLM (Answer + Citations)
 ```
 
----
+
 
 ## 🧰 Tech Stack
 
@@ -42,7 +42,7 @@ PDFs → Loader → Splitter → Embeddings → Chroma (persist)
 - **Streamlit** for the UI
 - **pypdf** for robust PDF parsing
 
----
+
 
 ## 🚀 Quickstart
 
@@ -69,7 +69,6 @@ streamlit run streamlit_app.py
 
 Open the displayed local URL in your browser.
 
----
 
 ## 🖥️ Using the App
 
@@ -83,7 +82,7 @@ Open the displayed local URL in your browser.
 - Increase **Top-K** to gather more evidence; enable **MMR** for diversity  
 - If answers look off, **Reset Vector Store** and re-index
 
----
+
 
 ## 🔧 Configuration
 
@@ -99,7 +98,7 @@ Edit `.env` or use sidebar inputs:
 | `CHUNK_SIZE` | Chunk chars | `1000` |
 | `CHUNK_OVERLAP` | Overlap chars | `200` |
 
----
+
 
 ## 🧠 How It Works (Deeper Dive)
 
@@ -119,7 +118,7 @@ The retriever supports:
 ### Generation
 A concise, **context-only** prompt is given to `ChatOpenAI`. If the fact isn’t present in context, the model is instructed to say it doesn’t know — reducing hallucination.
 
----
+
 
 ## 🧪 Quality Tips
 
@@ -128,7 +127,7 @@ A concise, **context-only** prompt is given to `ChatOpenAI`. If the fact isn’t
 - **Tune `k`**: try 4–8 for most research papers
 - **Check sources**: if a claim looks surprising, expand the source snippet and verify
 
----
+
 
 ## 🔒 Privacy & Localness
 
@@ -138,7 +137,7 @@ A concise, **context-only** prompt is given to `ChatOpenAI`. If the fact isn’t
 
 > Want fully local inference? You can swap `OpenAIEmbeddings` and `ChatOpenAI` for local providers (e.g., `HuggingFaceEmbeddings` + `Ollama`) with minor code changes.
 
----
+
 
 ## 🛠️ Common Issues & Fixes
 
@@ -154,7 +153,7 @@ A concise, **context-only** prompt is given to `ChatOpenAI`. If the fact isn’t
 - **Version conflicts**  
   Use the exact `requirements.txt` and a fresh virtual environment.
 
----
+
 
 ## 🧩 Extending the Project
 
@@ -163,23 +162,4 @@ A concise, **context-only** prompt is given to `ChatOpenAI`. If the fact isn’t
 - **Multi-modal**: OCR scanned PDFs (e.g., `pytesseract`) + images
 - **Summarization mode**: produce section-wise summaries per paper
 
----
 
-## 📝 License
-
-MIT — use freely, modify boldly.
-
----
-
-## 🙌 Acknowledgements
-
-- **LangChain** team for the RAG primitives  
-- **ChromaDB** for a smooth local vector store  
-- **OpenAI** for robust models
-
-### ⭐ If you add this to GitHub
-- Include a demo GIF (screen recording of asking a few questions)  
-- Add a “Deploy to” badge (Hugging Face Spaces or Streamlit Community Cloud)  
-- Write a short blog post — recruiters love a clear write-up!
-
-Happy researching! 🚀
